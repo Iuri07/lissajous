@@ -19,7 +19,7 @@ class Circle{
     noFill();
     ellipse(this.center.x, this.center.y, this.diameter);
     stroke(255);
-    strokeWeight(8);
+    strokeWeight(6);
     point(this.orbit.x, this.orbit.y)
   }
 }
@@ -49,7 +49,7 @@ class Curve {
     }
     endShape()
     stroke(255);
-    strokeWeight(8);
+    strokeWeight(6);
     point(this.x, this.y);
   }
 }
