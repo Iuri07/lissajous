@@ -17,8 +17,8 @@ function setup() {
     color(62, 227, 183)
   ];
 
-  let scale = (padding + offset*(colors.length+1))/windowHeight;
-  if(scale > 1){
+  let scale = max((padding + offset*(colors.length+1))/windowHeight,(padding + offset*(colors.length+1))/windowWidth);
+  if(scale != 1){
     padding /= scale;
     offset /= scale;
     diameter /= scale;
