@@ -1,24 +1,35 @@
 let circlesX = [];
 let circlesY = [];
 let curves = [];
+let speed = 0.03;
+let padding = 100;
+let offset = 150;
+let diameter = 90;
 
 function setup() {
-  let speed = 0.03;
-  let padding = 100;
-  let offset = 150;
   let colors = [
+    color(31, 3, 152),
     color(80, 0, 195),
     color(117, 33, 238),
+    lerpColor(color(0, 153, 195),color(117, 33, 238),0.5),
     color(0, 153, 195),
     color(0, 195, 143),
     color(62, 227, 183)
   ];
 
+  let scale = (padding + offset*(colors.length+1))/windowHeight;
+  if(scale > 1){
+    padding /= scale;
+    offset /= scale;
+    diameter /= scale;
+  }
   createCanvas(windowWidth,windowHeight);
 
+  let end = padding + offset*(colors.length) + diameter/2;
+  console.log(end)
   for(i = 1; i < colors.length + 1; i++){
-      circlesX.push(new Circle(createVector((padding + offset*i), padding), speed*i/2, colors[i-1]));
-      circlesY.push(new Circle(createVector(padding, (padding + offset*i)), speed*i/2, colors[i-1]));
+      circlesX.push(new Circle(createVector((padding + offset*i), padding), diameter, speed*i/2, colors[i-1], 'horizontal', end));
+      circlesY.push(new Circle(createVector(padding, (padding + offset*i)), diameter, speed*i/2, colors[i-1], 'vertical', end));
   }
 
   for(x = 0; x < circlesX.length; x++){
@@ -50,4 +61,8 @@ function draw() {
 
     }
   }
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
 }

@@ -1,9 +1,11 @@
 class Circle{
-  constructor(center, speed, color){
+  constructor(center, diameter, speed, color, type, end){
     this.center = center;
     this.speed = speed;
     this.color = color;
-    this.diameter = 90;
+    this.diameter = diameter;
+    this.type = type;
+    this.end = end;
     this.angle = 0;
     this.orbit = createVector(0,0);
   }
@@ -18,9 +20,19 @@ class Circle{
     strokeWeight(1);
     noFill();
     ellipse(this.center.x, this.center.y, this.diameter);
+
     stroke(255);
-    strokeWeight(6);
+    strokeWeight(4);
     point(this.orbit.x, this.orbit.y)
+
+    strokeWeight(1);
+    stroke(255, 25);
+    console.log(this.type)
+    if(this.type == 'horizontal'){
+      line(this.orbit.x, this.orbit.y, this.orbit.x, this.end)
+    } else{
+      line(this.orbit.x, this.orbit.y, this.end, this.orbit.y)
+    }
   }
 }
 
@@ -49,7 +61,7 @@ class Curve {
     }
     endShape()
     stroke(255);
-    strokeWeight(6);
+    strokeWeight(4);
     point(this.x, this.y);
   }
 }
