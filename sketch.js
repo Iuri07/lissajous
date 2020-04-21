@@ -3,11 +3,10 @@ let circlesY = [];
 let curves = [];
 
 function setup() {
-  let speed = 0.08;
+  let speed = 0.03;
   let padding = 100;
   let offset = 150;
   let colors = [
-    // color(31, 3, 152),
     color(80, 0, 195),
     color(117, 33, 238),
     color(0, 153, 195),
@@ -18,8 +17,8 @@ function setup() {
   createCanvas(windowWidth,windowHeight);
 
   for(i = 1; i < colors.length + 1; i++){
-      circlesX.push(new Circle(createVector((padding + offset*i), padding), speed/i, colors[i-1]));
-      circlesY.push(new Circle(createVector(padding, (padding + offset*i)), speed/i, colors[i-1]));
+      circlesX.push(new Circle(createVector((padding + offset*i), padding), speed*i/2, colors[i-1]));
+      circlesY.push(new Circle(createVector(padding, (padding + offset*i)), speed*i/2, colors[i-1]));
   }
 
   for(x = 0; x < circlesX.length; x++){
@@ -35,7 +34,6 @@ function setup() {
 }
 
 function draw() {
-  // ellipseMode(CORNER)
   background(33,37,43);
   for(i = 0; i < circlesX.length; i++){
     circlesX[i].show();
@@ -52,6 +50,4 @@ function draw() {
 
     }
   }
-
-  // put drawing code here
 }

@@ -33,7 +33,7 @@ class Curve {
   }
 
   update(x, y){
-    if( !this.vertex[0] || this.vertex[0].x != x && this.vertex[0].y != y){
+    if( !this.vertex[0] || this.vertex.length < 500){
       this.vertex.push(createVector(x, y));
     }
     this.x = x;
@@ -43,13 +43,11 @@ class Curve {
   show(){
     stroke(this.color || 255);
     strokeWeight(1);
-    // noFill();
-    beginShape(LINES);
+    beginShape();
     for(i = 0; i< this.vertex.length; i++){
       vertex(this.vertex[i].x, this.vertex[i].y);
     }
-    endShape(LINES)
-    // line(this.x, this.y, this.prevX, this.prevY);
+    endShape()
     stroke(255);
     strokeWeight(8);
     point(this.x, this.y);
