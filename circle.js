@@ -27,7 +27,6 @@ class Circle{
 
     strokeWeight(1);
     stroke(255, 25);
-    console.log(this.type)
     if(this.type == 'horizontal'){
       line(this.orbit.x, this.orbit.y, this.orbit.x, this.end)
     } else{

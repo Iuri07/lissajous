@@ -26,7 +26,6 @@ function setup() {
   createCanvas(windowWidth,windowHeight);
 
   let end = padding + offset*(colors.length) + diameter/2;
-  console.log(end)
   for(i = 1; i < colors.length + 1; i++){
       circlesX.push(new Circle(createVector((padding + offset*i), padding), diameter, speed*i/2, colors[i-1], 'horizontal', end));
       circlesY.push(new Circle(createVector(padding, (padding + offset*i)), diameter, speed*i/2, colors[i-1], 'vertical', end));
